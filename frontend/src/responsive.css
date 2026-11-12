@@ -1,0 +1,37 @@
+/* ============================================================
+   全局移动端适配(手机竖屏 / 平板竖屏)
+   各页面自己的布局断点写在各自的 scoped 样式里,
+   这里只放跨页面通用的规则(弹窗宽度、字号、底部留白等)
+   ============================================================ */
+
+/* ---- 手机 ---- */
+@media (max-width: 680px) {
+  /* Element Plus 弹窗默认固定宽度, 手机上会顶出屏幕, 统一改成百分比 */
+  .el-dialog { width: 92% !important; margin-top: 6vh !important; }
+  .el-dialog__body { padding: 12px 14px !important; }
+  .el-dialog__header { padding: 12px 14px !important; }
+  .el-dialog__footer { padding: 10px 14px 14px !important; }
+  .el-message-box { width: 88% !important; }
+  .el-message { min-width: 0 !important; width: 88%; }
+
+  /* 弹窗里的按钮允许换行, 避免一排按钮挤出屏幕 */
+  .el-dialog__footer { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+  .el-dialog__footer button { margin-left: 0 !important; }
+
+  /* 移动端点击目标: 至少 32px 高, 并去掉 300ms 点击延迟 */
+  button, .el-button { touch-action: manipulation; }
+
+  /* 文本在小屏幕上不再强行不换行(长英文/长昵称会溢出) */
+  .el-dialog__title { font-size: 15px; }
+}
+
+/* ---- 平板竖屏 ---- */
+@media (max-width: 980px) {
+  .el-dialog { width: 76% !important; }
+}
+
+/* 手机横屏: 高度小, 弹窗别顶到屏幕外 */
+@media (max-height: 460px) and (max-width: 900px) {
+  .el-dialog { margin-top: 3vh !important; max-height: 92vh; }
+  .el-dialog__body { max-height: 62vh; overflow-y: auto; }
+}

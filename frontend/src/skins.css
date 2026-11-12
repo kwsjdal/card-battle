@@ -1,0 +1,169 @@
+/* ============================================================
+   卡面皮肤边框 —— 明日方舟阵营涂装（纯视觉，不影响数值）
+   ============================================================ */
+
+/* 罗德岛制式：蓝白机能边 */
+.card.skin-default {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #dfe6ee,
+    0 0 0 3px rgba(58, 92, 130, 0.85),
+    0 0 14px rgba(140, 190, 255, 0.28) !important;
+}
+
+/* 莱茵生命：青蓝冷凝双环 */
+.card.skin-ice {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #8ce9f4,
+    0 0 0 3px rgba(31, 126, 140, 0.9),
+    0 0 18px rgba(79, 214, 230, 0.5) !important;
+  animation: skinIce 3s ease-in-out infinite;
+}
+
+/* 企鹅物流：橙红警示边 */
+.card.skin-flame {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #ff9a52,
+    0 0 0 3px rgba(150, 58, 22, 0.9),
+    0 0 18px rgba(255, 122, 42, 0.45) !important;
+  animation: skinFlame 2.4s ease-in-out infinite;
+}
+
+/* 萨卡兹源石技艺：荧绿源石边 */
+.card.skin-forest {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #8df0a8,
+    0 0 0 3px rgba(38, 92, 58, 0.9),
+    0 0 18px rgba(111, 208, 140, 0.45) !important;
+  animation: skinSource 3.4s ease-in-out infinite;
+}
+
+/* 深海猎人：紫黑深渊边 */
+.card.skin-holo {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #c9b4ff,
+    0 0 0 3px rgba(68, 48, 120, 0.9),
+    0 0 22px rgba(169, 139, 255, 0.5) !important;
+  animation: skinHolo 4s linear infinite;
+}
+
+/* 巴别塔遗珍：鎏金蚀刻边 */
+.card.skin-gold {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #ffd98a,
+    0 0 0 3px rgba(140, 96, 22, 0.95),
+    0 0 22px rgba(255, 196, 92, 0.55) !important;
+  animation: skinGold 2.8s ease-in-out infinite;
+}
+
+@keyframes skinIce {
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50% { filter: brightness(1.12) saturate(1.15); }
+}
+@keyframes skinFlame {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.18) saturate(1.18); }
+}
+@keyframes skinHolo {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+@keyframes skinSource {
+  0%, 100% { filter: brightness(1) hue-rotate(0deg); }
+  50% { filter: brightness(1.15) hue-rotate(-8deg); }
+}
+@keyframes skinGold {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+}
+
+/* ---------- 干员主题皮肤（参考开源明日方舟角色皮肤配色） ---------- */
+
+/* 新约·阿米娅：青紫双源石边 */
+.card.skin-amiya {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #b8e0ff,
+    0 0 0 3px rgba(90, 74, 160, 0.9),
+    0 0 20px rgba(150, 190, 255, 0.5) !important;
+  animation: skinAmiya 3.2s ease-in-out infinite;
+}
+@keyframes skinAmiya {
+  0%, 100% { filter: brightness(1) hue-rotate(0deg); }
+  50% { filter: brightness(1.12) hue-rotate(6deg); }
+}
+
+/* 医师·凯尔希：白绿医疗辐环 */
+.card.skin-kalts {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #e8fff2,
+    0 0 0 3px rgba(46, 110, 84, 0.9),
+    0 0 18px rgba(110, 220, 170, 0.45) !important;
+  animation: skinKalts 2.6s ease-in-out infinite;
+}
+@keyframes skinKalts {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.15) saturate(1.2); }
+}
+
+/* 爆破·W：橙黑爆痕焦边 */
+.card.skin-w {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #ffb84d,
+    0 0 0 3px rgba(60, 34, 12, 0.95),
+    0 0 22px rgba(255, 140, 40, 0.6) !important;
+  animation: skinW 2s ease-in-out infinite;
+}
+@keyframes skinW {
+  0%, 100% { filter: brightness(1) saturate(1.1); }
+  50% { filter: brightness(1.25) saturate(1.35); }
+}
+
+/* 雪境·银灰：霜银冷冽边 */
+.card.skin-silverash {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #f0f6ff,
+    0 0 0 3px rgba(110, 132, 155, 0.95),
+    0 0 20px rgba(200, 225, 255, 0.55) !important;
+  animation: skinSilverash 3.6s ease-in-out infinite;
+}
+@keyframes skinSilverash {
+  0%, 100% { filter: brightness(1) saturate(0.95); }
+  50% { filter: brightness(1.18) saturate(1.05); }
+}
+
+/* 黄昏·史尔特尔：赤金烈焰熔边 */
+.card.skin-surtr {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #ffd28a,
+    0 0 0 3px rgba(140, 40, 20, 0.95),
+    0 0 24px rgba(255, 100, 40, 0.6) !important;
+  animation: skinSurtr 2.2s ease-in-out infinite;
+}
+@keyframes skinSurtr {
+  0%, 100% { filter: brightness(1) saturate(1.15); }
+  50% { filter: brightness(1.22) saturate(1.4); }
+}
+
+/* 荒野·拉普兰德：冷月银紫狼边 */
+.card.skin-lappland {
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.65),
+    0 0 0 1px #e6dcff,
+    0 0 0 3px rgba(84, 66, 122, 0.92),
+    0 0 20px rgba(180, 150, 255, 0.5) !important;
+  animation: skinLappland 3s ease-in-out infinite;
+}
+@keyframes skinLappland {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.16) hue-rotate(-6deg); }
+}

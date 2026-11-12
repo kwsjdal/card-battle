@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  # 响应压缩(论文可写: 接口传输优化)
+  # 卡池/卡库这类接口返回 66 张卡的完整档案, 原始 JSON 约 17KB;
+  # 开启 gzip 后实际传输降到 3KB 量级, 手机端流量与弱网体验明显改善。
+  compression:
+    enabled: true
+    min-response-size: 1024          # 小于 1KB 的响应不压缩, 避免得不偿失
+    mime-types: application/json,application/javascript,text/css,text/html,text/xml
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/card_battle?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: ${DB_PASSWORD:your_password}    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379              # Windows可用Memurai或WSL里的redis
+  servlet:
+    multipart:
+      max-file-size: 5MB
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    # 安全/整洁: 不配置 log-impl, SQL 走 SLF4J, 只有把日志级别调到 DEBUG 才会打印
+    # 调试时临时打开: log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+cardbattle:
+  jwt:
+    secret: ${JWT_SECRET:please_change_me}    expire-hours: 72
+  sms:
+    # 演示开关: true=接口回显验证码(答辩现场无短信网关时使用); 生产环境必须为 false
+    echo-code: false
+  battle:
+    # 房间保洁参数(毫秒): 空闲超时判和 / 单局总时长上限 / 掉线重连宽限期
+    idle-timeout-ms: 300000
+    max-alive-ms: 2700000
+    offline-grace-ms: 60000

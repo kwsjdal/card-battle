@@ -1,0 +1,272 @@
+/* ============================================================
+   卡牌对战系统 —— 明日方舟式暗色工业战术主题
+   设计语言：近黑钢板底 + 琥珀编号色 + 青色数据色 + 红色警报色
+   ============================================================ */
+
+:root {
+  /* 主色：工业琥珀（编号/高亮/主按钮） */
+  --gold:        #f0a52a;
+  --gold-dark:   #b8781a;
+  --gold-light:  #ffc45c;
+
+  /* 背景：钢板与机箱 */
+  --ink:         #0e1013;
+  --ink-2:       #121519;
+  --leather:     #191d22;
+  --leather-2:   #222730;
+  --leather-3:   #333a44;
+  --line:        #2c333c;
+  --line-soft:   #232931;
+
+  /* 文字 */
+  --parchment:   #d9dee5;
+  --text:        #d9dee5;
+  --text-dim:    #8d97a3;
+  --text-mute:   #5e6874;
+
+  /* 功能色 */
+  --blood:       #e2554f;
+  --mana:        #4fd6e6;
+  --cyan:        #4fd6e6;
+  --cyan-dark:   #1f7e8c;
+  --poison:      #6fd08c;
+  --violet:      #a98bff;
+
+  /* 字体 */
+  --font-ui: "Bahnschrift", "DIN Alternate", "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-num: "Bahnschrift", "DIN Alternate", "Consolas", monospace;
+}
+
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-ui);
+  color: var(--text);
+  background: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(240, 165, 42, 0.28);
+  color: #fff;
+}
+
+/* === Element Plus 主色 → 琥珀 === */
+.el-button--primary {
+  --el-button-bg-color: #c98a1f;
+  --el-button-border-color: #e0a02c;
+  --el-button-hover-bg-color: #f0a52a;
+  --el-button-hover-border-color: #ffc45c;
+  --el-button-active-bg-color: #b8781a;
+  --el-button-text-color: #0e1013;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.el-button--primary.is-plain {
+  --el-button-bg-color: transparent;
+  --el-button-border-color: #b8781a;
+  --el-button-text-color: var(--gold-light);
+  --el-button-hover-bg-color: rgba(240, 165, 42, 0.14);
+}
+
+.el-button--info {
+  --el-button-bg-color: #2a3038;
+  --el-button-border-color: #3c444f;
+  --el-button-text-color: #cfd6de;
+}
+.el-button--success {
+  --el-button-bg-color: #2e5a42;
+  --el-button-border-color: #3d7255;
+  --el-button-text-color: #cdf0dd;
+}
+.el-button--warning {
+  --el-button-bg-color: #8a5c12;
+  --el-button-border-color: #a87318;
+  --el-button-text-color: #ffe6b8;
+}
+.el-button--danger {
+  --el-button-bg-color: #8f2f2a;
+  --el-button-border-color: #a83c36;
+  --el-button-text-color: #ffdedb;
+}
+
+/* === 面板 / 弹窗 / 表单 === */
+.el-card, .el-dialog {
+  background:
+    linear-gradient(180deg, rgba(30, 35, 41, 0.97), rgba(15, 18, 22, 0.97)) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 4px !important;
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  color: var(--text);
+}
+.el-dialog__header {
+  border-bottom: 1px solid var(--line);
+  padding: 16px 20px 12px;
+  margin-right: 0;
+}
+.el-dialog__title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+}
+.el-dialog__body { padding: 18px 20px; }
+.el-dialog__headerbtn .el-dialog__close { color: var(--text-dim); }
+.el-dialog__headerbtn:hover .el-dialog__close { color: var(--gold); }
+.el-overlay { background-color: rgba(4, 6, 8, 0.72); }
+
+.el-card__header {
+  border-bottom: 1px solid var(--line) !important;
+  color: var(--gold-light);
+  letter-spacing: 2px;
+}
+.el-card__header, .el-card__body, .el-dialog__body { color: var(--text); }
+
+/* === Input === */
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  background: rgba(9, 11, 14, 0.85) !important;
+  box-shadow: 0 0 0 1px #3a424d inset !important;
+  border-radius: 3px;
+  color: var(--text);
+}
+.el-input__wrapper.is-focus,
+.el-textarea__inner:focus,
+.el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 1px var(--gold) inset, 0 0 12px rgba(240, 165, 42, 0.25) !important;
+}
+.el-input__inner, .el-textarea__inner { color: var(--text); }
+.el-input__inner::placeholder,
+.el-textarea__inner::placeholder { color: var(--text-mute); }
+.el-input-group__append {
+  background: #232830 !important;
+  color: var(--gold-light);
+  box-shadow: 0 0 0 1px #3a424d inset;
+}
+
+/* === Tabs === */
+.el-tabs__nav-wrap::after { background-color: var(--line); height: 1px; }
+.el-tabs__item {
+  color: var(--text-dim);
+  font-size: 14px;
+  letter-spacing: 3px;
+  transition: color .15s;
+}
+.el-tabs__item:hover { color: var(--gold-light); }
+.el-tabs__item.is-active { color: var(--gold); font-weight: 700; }
+.el-tabs__active-bar { background-color: var(--gold); height: 2px; }
+
+/* === Table === */
+.el-table {
+  --el-table-bg-color: rgba(14, 17, 21, 0.5);
+  --el-table-tr-bg-color: transparent;
+  --el-table-header-bg-color: rgba(34, 39, 48, 0.9);
+  --el-table-row-hover-bg-color: rgba(240, 165, 42, 0.08);
+  --el-table-border-color: #2c333c;
+  --el-table-text-color: #cdd4dc;
+  --el-table-header-text-color: var(--gold-light);
+  border: 1px solid var(--line) !important;
+}
+.el-table th.el-table__cell {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.el-table th.el-table__cell,
+.el-table td.el-table__cell {
+  border-bottom: 1px solid rgba(44, 51, 60, 0.8);
+}
+.el-table .warning-row { background: rgba(226, 85, 79, 0.12) !important; }
+.el-table .success-row { background: rgba(111, 208, 140, 0.09) !important; }
+.el-table__empty-text { color: var(--text-mute); }
+
+/* === Tag === */
+.el-tag {
+  --el-tag-bg-color: rgba(240, 165, 42, 0.14);
+  --el-tag-border-color: #7a5416;
+  --el-tag-text-color: var(--gold-light);
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+.el-tag.el-tag--danger {
+  --el-tag-bg-color: rgba(226, 85, 79, 0.16);
+  --el-tag-border-color: #7d2d29;
+  --el-tag-text-color: #ffb3af;
+}
+.el-tag.el-tag--info {
+  --el-tag-bg-color: rgba(79, 214, 230, 0.12);
+  --el-tag-border-color: #26646d;
+  --el-tag-text-color: #a4eef6;
+}
+.el-tag.el-tag--success {
+  --el-tag-bg-color: rgba(111, 208, 140, 0.12);
+  --el-tag-border-color: #2f6247;
+  --el-tag-text-color: #b8f0ce;
+}
+
+/* === Message / MessageBox === */
+.el-message {
+  background: rgba(24, 28, 33, 0.96) !important;
+  border: 1px solid var(--line) !important;
+  color: var(--text) !important;
+  border-radius: 3px;
+}
+.el-message-box {
+  background: #1a1e23 !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 4px;
+  color: var(--text);
+}
+.el-message-box__title { color: var(--gold-light); letter-spacing: 2px; }
+
+/* === Drawer === */
+.el-drawer {
+  background: linear-gradient(180deg, rgba(24, 28, 34, 0.98), rgba(12, 15, 18, 0.99)) !important;
+  border-left: 1px solid var(--line);
+  color: var(--text);
+}
+.el-drawer__body { padding: 20px 22px; }
+
+/* === Select 下拉 === */
+.el-select-dropdown { background: #191d22 !important; border: 1px solid var(--line) !important; }
+.el-select-dropdown__item { color: var(--text) !important; }
+.el-select-dropdown__item.is-hovering { background: rgba(240, 165, 42, 0.12) !important; }
+.el-select-dropdown__item.is-selected { color: var(--gold-light) !important; font-weight: 700; }
+.el-select__placeholder { color: var(--text-mute); }
+
+/* === 滚动条 === */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
+::-webkit-scrollbar-thumb {
+  background: #3a424d;
+  border-radius: 0;
+  border-left: 2px solid transparent;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+/* === 标题：工业无衬线，去楷体 === */
+h1, h2, h3, h4 {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* === 通用主按钮 === */
+.btn-gold {
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn-gold:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(240, 165, 42, 0.32);
+}
+.btn-gold:active { transform: translateY(0); }
